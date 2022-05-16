@@ -57,6 +57,8 @@
     }
 
     async function scanCode() {
+      const result = await liff.scanCode()
+      document.getElementById("scanCode").append(result.value)
     }
 
     function openWindow() {
@@ -124,15 +126,10 @@
     async function main() {
       // liff.init() เป็นจุดเริ่มขบวนของ liff
       await liff.init({ liffId: "1657129225-PybQ2v9D" })
-//alert("B4 getEnv")
       getEnvironment()
-//alert("B4 getUserProfile")
       getUserProfile()
-//alert("B4 getContext")
       getContext()
-//alert("B4 getFriend")
       getFriendship()
-//alert("B4 createUniversal")
       // createUniversalLink()
     }
     main()
