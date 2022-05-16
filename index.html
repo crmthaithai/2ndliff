@@ -54,6 +54,7 @@
     }
 
     function closed() {
+      liff.closeWindow()
     }
 
     async function scanCode() {
@@ -126,10 +127,16 @@
     async function main() {
       // liff.init() เป็นจุดเริ่มขบวนของ liff
       await liff.init({ liffId: "1657129225-PybQ2v9D" })
-      getEnvironment()
-      getUserProfile()
-      getContext()
-      getFriendship()
+      document.getElementById("isLoggedIn").append(liff.isLoggedIn())
+
+      if (liff.isLoggedIn()) {
+        getEnvironment()
+        getUserProfile()
+        getContext()
+        getFriendship()
+      } else {
+        liff.login()
+      }
       // createUniversalLink()
     }
     main()
